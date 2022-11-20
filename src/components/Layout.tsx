@@ -116,9 +116,9 @@ export default function Layout() {
       }
     }
 
-
     if (origin && damaged !== undefined) {
-      setResult(formula[origin.toString()][damaged.toString()]);
+      const formulaResult = formula[origin.toString()][damaged.toString()] ?? '단독';
+      setResult(formulaResult);
     }
   }, [
     originHair,
