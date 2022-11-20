@@ -117,7 +117,7 @@ export default function Layout() {
     }
 
     if (origin && damaged !== undefined) {
-      const formulaResult = formula[origin.toString()][damaged.toString()] ?? '단독';
+      const formulaResult = formula[origin.toString()][damaged.toString()];
       setResult(formulaResult);
     }
   }, [
