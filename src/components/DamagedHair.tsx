@@ -26,7 +26,6 @@ const itemStyles = {
 };
 
 const formLabelStyles = {
-  alignSelf: "center",
   width: "150px",
   marginRight: "10px",
 };
@@ -49,6 +48,7 @@ export default function DamagedHair({
             id="radio-group1-label"
             style={formLabelStyles}
             focused={false}
+            sx={{ alignSelf: "center" }}
           >
             염색 유무
           </FormLabel>
@@ -68,6 +68,7 @@ export default function DamagedHair({
             id="radio-group2-label"
             style={formLabelStyles}
             focused={false}
+            sx={{ alignSelf: "center" }}
           >
             주기적 염색
           </FormLabel>
@@ -82,11 +83,12 @@ export default function DamagedHair({
           </RadioGroup>
         </Box>
 
-        <Box style={itemStyles}>
+        <Box style={itemStyles} sx={{ marginBottom: "10px" }}>
           <FormLabel
             id="radio-group3-label"
             style={formLabelStyles}
             focused={false}
+            sx={{ alignSelf: "center" }}
           >
             홈매직 스타일링
           </FormLabel>
@@ -101,7 +103,7 @@ export default function DamagedHair({
           </RadioGroup>
         </Box>
 
-        <Box style={itemStyles}>
+        <Box style={itemStyles} sx={{ flexDirection: "column" }}>
           <FormLabel
             id="radio-group4-label"
             style={formLabelStyles}
@@ -122,7 +124,7 @@ export default function DamagedHair({
           </RadioGroup>
         </Box>
 
-        <Box style={itemStyles}>
+        <Box style={itemStyles} sx={{ flexDirection: "column" }}>
           <FormLabel
             id="radio-group5-label"
             style={formLabelStyles}
@@ -143,7 +145,7 @@ export default function DamagedHair({
           </RadioGroup>
         </Box>
 
-        <Box style={itemStyles}>
+        <Box style={itemStyles} sx={{ flexDirection: "column" }}>
           <FormLabel
             id="radio-group6-label"
             style={formLabelStyles}
