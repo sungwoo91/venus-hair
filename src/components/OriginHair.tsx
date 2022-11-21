@@ -46,22 +46,22 @@ export default function OriginHair({ handleChange }: any) {
           <FormControlLabel
             value="hair1"
             control={<Radio />}
-            label="1. 윤기나는 직모"
+            label="1. 윤기나는 직모 (10)"
           />
           <FormControlLabel
             value="hair2"
             control={<Radio />}
-            label="2. 연모, 약곱슬모"
+            label="2. 연모, 약곱슬모 (9)"
           />
           <FormControlLabel
             value="hair3"
             control={<Radio />}
-            label="3. 건조모, 강곱슬모, 50%이상 세치모"
+            label="3. 건조모, 강곱슬모, 50%이상 세치모 (8)"
           />
           <FormControlLabel
             value="hair4"
             control={<Radio />}
-            label="4. 악성곱슬모"
+            label="4. 악성곱슬모 (7)"
           />
         </RadioGroup>
       </FormControl>

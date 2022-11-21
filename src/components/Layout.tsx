@@ -73,51 +73,57 @@ export default function Layout() {
       origin = 7;
     }
 
-    if (damagedHair1) {
+    // 염색 유무
+    if (damagedHair1 !== undefined) {
       if (damaged) {
         damaged += 1;
       } else {
         damaged = damagedHair1 === "Y" ? 1 : 0;
       }
     }
-    if (damagedHair2) {
+    // 주기적 염색
+    if (damagedHair2 !== undefined) {
       if (damaged) {
-        damaged += 1;
+        damaged += 2;
       } else {
-        damaged = damagedHair2 === "Y" ? 1 : 0;
+        damaged = damagedHair2 === "Y" ? 2 : 0;
       }
     }
-    if (damagedHair3) {
+    // 홈매직 스타일링
+    if (damagedHair3 !== undefined) {
       if (damaged) {
         damaged += 2;
       } else {
         damaged = damagedHair3 === "Y" ? 2 : 0;
       }
     }
-    if (damagedHair4 === "Y") {
+    // 일반펌 횟수
+    if (damagedHair4 !== undefined) {
       if (damaged) {
-        damaged += 2;
+        damaged += 1 * damagedHair4;
       } else {
-        damaged = damagedHair4 === "Y" ? 2 : 0;
+        damaged = 1 * damagedHair4;
       }
     }
-    if (damagedHair5 === "Y") {
+    // 직펌 횟수
+    if (damagedHair5 !== undefined) {
       if (damaged) {
-        damaged += 2;
+        damaged += 2 * damagedHair5;
       } else {
-        damaged = damagedHair5 === "Y" ? 2 : 0;
+        damaged = 2 * damagedHair5;
       }
     }
-    if (damagedHair6 === "Y") {
+    if (damagedHair6 !== undefined) {
       if (damaged) {
-        damaged += 2;
+        damaged += 2 * damagedHair6;
       } else {
-        damaged = damagedHair6 === "Y" ? 2 : 0;
+        damaged = 2 * damagedHair6;
       }
     }
 
     if (origin && damaged !== undefined) {
-      const formulaResult = formula[origin.toString()][damaged.toString()];
+      const formulaResult =
+        formula[origin.toString()][damaged.toString()] ?? "단독";
       setResult(formulaResult);
     }
   }, [
@@ -154,12 +160,7 @@ export default function Layout() {
           <Divider
             sx={{ borderWidth: "medium", borderColor: "#eeeeee" }}
           ></Divider>
-          <Stack
-            direction="row"
-            spacing={2}
-            justifyContent="center"
-            sx={{ marginTop: "10px" }}
-          >
+          <Stack spacing={2} justifyContent="center" sx={{ height: "60px" }}>
             <Button variant="contained" color="primary" onClick={onCickResult}>
               결과보기
             </Button>
@@ -170,8 +171,8 @@ export default function Layout() {
           <Box sx={{ margin: "20px" }}>
             {result
               ? result === "단독"
-                ? `001 단독으로 해주세요.`
-                : `001과 펌제 비율을 ${result} 으로 해주세요.`
+                ? `이지후 001+ 단독으로 해주세요.`
+                : `이지후 001+과 이지후 육미지황 펌제 비율을 ${result} 으로 해주세요.`
               : `항목을 선택해주세요.`}
           </Box>
         </Dialog>
