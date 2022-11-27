@@ -1,19 +1,18 @@
-import * as React from "react";
-import CssBaseline from "@mui/material/CssBaseline";
 import Box from "@mui/material/Box";
-import Divider from "@mui/material/Divider";
-import Container from "@mui/material/Container";
-import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
 import Dialog from "@mui/material/Dialog";
 import DialogTitle from "@mui/material/DialogTitle";
-import Header from "../components/Header";
-import OriginHair from "./OriginHair";
-import DamagedHair from "./DamagedHair";
+import Divider from "@mui/material/Divider";
+import Stack from "@mui/material/Stack";
+import * as React from "react";
 import { useState } from "react";
-import formula from "../formula";
+import formula from "../../formula";
+import DamagedHair from "./DamagedHair";
+import Header from "./Header";
+import OriginHair from "./OriginHair";
 
-export default function Layout() {
+export default function Calculator() {
   const [open, setOpen] = useState(false);
   const [result, setResult] = useState();
   const [originHair, setOriginHair] = useState();
@@ -23,6 +22,7 @@ export default function Layout() {
   const [damagedHair4, setDamagedHair4] = useState();
   const [damagedHair5, setDamagedHair5] = useState();
   const [damagedHair6, setDamagedHair6] = useState();
+  const [buttonValidation, setButtonValidation] = useState(false);
 
   const handleOriginHairChange = (e) => {
     setOriginHair(e.target.value);
@@ -126,6 +126,18 @@ export default function Layout() {
         formula[origin.toString()][damaged.toString()] ?? "단독";
       setResult(formulaResult);
     }
+
+    if (
+      originHair &&
+      damagedHair1 &&
+      damagedHair2 &&
+      damagedHair3 &&
+      damagedHair4 &&
+      damagedHair5 &&
+      damagedHair6
+    ) {
+      setButtonValidation(true);
+    }
   }, [
     originHair,
     damagedHair1,
@@ -138,9 +150,8 @@ export default function Layout() {
 
   return (
     <React.Fragment>
-      <CssBaseline />
+      <Header></Header>
       <Container maxWidth="sm" sx={{ padding: 0 }}>
-        <Header></Header>
         <Divider
           sx={{ borderWidth: "medium", borderColor: "#eeeeee" }}
         ></Divider>
@@ -161,7 +172,12 @@ export default function Layout() {
             sx={{ borderWidth: "medium", borderColor: "#eeeeee" }}
           ></Divider>
           <Stack spacing={2} justifyContent="center" sx={{ height: "60px" }}>
-            <Button variant="contained" color="primary" onClick={onCickResult}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={onCickResult}
+              disabled={!buttonValidation}
+            >
               결과보기
             </Button>
           </Stack>

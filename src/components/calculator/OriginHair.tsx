@@ -5,7 +5,7 @@ import FormControl from "@mui/material/FormControl";
 import RadioGroup from "@mui/material/RadioGroup";
 import Radio from "@mui/material/Radio";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import hairs from "../images/hairs.jpeg";
+import hairs from "../../images/hairs.jpeg";
 
 const hairImageStyles = {
   maxWidth: "100%",
